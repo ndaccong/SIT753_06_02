@@ -9,8 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo "Testing using Selenium..."
-                sh "pip install unittest"
+                echo "Testing using Unittest..."
                 sh "python3 unittest -m tests/test.py"
             }
         }
