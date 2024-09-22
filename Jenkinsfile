@@ -16,7 +16,6 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 echo "Code analysis using pylint"
-                // sh "pip install pylint"
                 sh "pylint src/main.py"
             }
         }
