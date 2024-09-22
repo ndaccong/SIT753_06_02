@@ -10,13 +10,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing using Unittest..."
-                sh "python3 unittest -m tests/test.py"
+                sh "python3 -m unittest tests/test.py"
             }
         }
         stage('Code Analysis') {
             steps {
                 echo "Code analysis using pylint"
-                sh "pip install pylint"
+                // sh "pip install pylint"
                 sh "pylint src/main.py"
             }
         }
