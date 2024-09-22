@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  square:
+    image: square
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: square
+    ports:
+      - "4001:80"
+    environment:
+      - PORT=80
+    restart: "no"
