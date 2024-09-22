@@ -21,6 +21,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                echo "Deploying using Docker Compose..."
+                sh "docker compose up"
+            }
+        }
+        stage('Release') {
+            steps {
                 echo "Deploying to Azure..."
             }
         }
