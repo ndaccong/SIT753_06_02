@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building using Docker..."
-                sh "./scripts/build.sh"
+                sh "./scripts/build-image.sh"
             }
         }
         stage('Test') {
