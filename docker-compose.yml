@@ -5,7 +5,7 @@ services:
     image: square
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-dev
     container_name: square
     ports:
       - "4001:80"
