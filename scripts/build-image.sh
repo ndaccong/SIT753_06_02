@@ -1,0 +1,1 @@
+docker built -t square:latest -f ./Dockerfile .

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: square
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: square
+  template:
+    metadata:
+      labels:
+        app: square
+    spec:
+      containers:
+      - name: square
+        image: daccong753.azurecr.io/square:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: PORT
+          value: "5000"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: square
+spec:
+  selector:
+    app: square
+  type: LoadBalancer
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 5000
+    nodePort: 30000

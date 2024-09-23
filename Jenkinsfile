@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building using Docker..."
-                sh "docker build -t square:latest -f ./Dockerfile ."
+                sh "./scripts/build.sh"
             }
         }
         stage('Test') {
