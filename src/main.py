@@ -2,7 +2,18 @@
 The main function of the application.
 """
 
-def square(number):
+from fastapi import FastAPI
+# from pydantic import BaseModel
+
+# class Number(BaseModel):
+#     """A simple number model"""
+#     id: int
+
+#     class Config:
+#         """Use orm_mode"""
+#         orm_mode = True
+
+def square(number: int = 10):
     """
     Calculates the square of a number.
 
@@ -14,12 +25,19 @@ def square(number):
     """
     return number * number
 
-if __name__ == '__main__':
+app = FastAPI()
 
-    import argparse
+@app.get("/")
+async def get_square(number: int = 10):
+    """Returns the square of a number"""
+    return square(number=number)
 
-    parser = argparse.ArgumentParser("Square example")
-    parser.add_argument("--number", help="Any number.", type=int)
-    args = parser.parse_args()
+# if __name__ == '__main__':
 
-    print(f"The square of {args.number} is: {square(args.number)}")
+#     import argparse
+
+#     parser = argparse.ArgumentParser("Square example")
+#     parser.add_argument("--number", help="Any number.", type=int)
+#     args = parser.parse_args()
+
+#     print(f"The square of {args.number} is: {square(args.number)}")

@@ -4,7 +4,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY ./src/ .
 COPY ./requirements.txt requirements.txt
-RUN pip install --upgrade pip 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-CMD python3 main.py --number 3
+CMD uvicorn main:app --host 0.0.0.0 --port $PORT
