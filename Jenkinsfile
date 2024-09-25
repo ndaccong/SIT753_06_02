@@ -28,6 +28,8 @@ pipeline {
         stage('Release') {
             steps {
                 echo "Deploying to Azure..."
+                sh "./scripts/push-image.sh"
+                sh "./scripts/deploy.sh"
             }
         }
         stage('Monitoring') {

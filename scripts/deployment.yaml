@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: square
-        image: daccong753.azurecr.io/square:latest
+        image: daccongsit753.azurecr.io/square:latest
         imagePullPolicy: IfNotPresent
         env:
         - name: PORT
